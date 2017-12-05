@@ -1,3 +1,7 @@
+## Release 1.5.1
+
+* 8d4ff2d [bugfix] Update rubocop to the latest (#1)
+
 ## Release 1.5.0
 
 * 8c93b33 [feature] allow other package name than poudriere (#26)
