@@ -85,7 +85,7 @@
     dest: "{{ poudriere_config_merged['PKG_REPO_SIGNING_KEY'] | dirname }}"
     state: directory
   when:
-      - "'PKG_REPO_SIGNING_KEY' in poudriere_config_merged"
+    - "'PKG_REPO_SIGNING_KEY' in poudriere_config_merged"
 
 - name: Create PKG_REPO_SIGNING_KEY if specified
   template:
@@ -141,7 +141,7 @@
   shell: "poudriere ports -lq | awk '{ print $1 }'"
   register: register_ports_list
   changed_when: false
-  always_run: yes
+  check_mode: no
 
 - name: Assert `state` exists in all ports in poudriere_ports
   assert:
@@ -161,7 +161,7 @@
   shell: "poudriere jails -lq | awk '{ print $1 }'"
   register: register_jails_list
   changed_when: false
-  always_run: yes
+  check_mode: no
 
 - name: Assert `state` exists in all jails in poudriere_jails
   assert:
@@ -186,7 +186,7 @@
     - not item.key in register_ports_list.stdout_lines
   with_dict: "{{ poudriere_ports }}"
 
-- name: Create jails 
+- name: Create jails
   command: "poudriere jail -c -j {{ item.key }} -m {{ item.value.method }} -v {{ item.value.version }} {% if 'extra_flags' in item.value %}{{ item.value.extra_flags }}{% endif %}"
   args:
     creates: "{{ poudriere_config_merged.BASEFS }}/jails/{{ item.key }}"

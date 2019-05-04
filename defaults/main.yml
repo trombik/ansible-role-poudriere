@@ -1,3 +1,4 @@
+---
 # XXX poudriered is EXPERIMENTAL. the service is not enabled by the role as the
 # devs said that "it's because you should not use it".
 # https://github.com/freebsd/poudriere/issues/333
