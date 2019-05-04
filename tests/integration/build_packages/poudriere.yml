@@ -8,5 +8,5 @@
     no_proxy: "{{ no_proxy | default() }}"
 
   roles:
-    - name: reallyenglish.git
+    - name: trombik.git
     - ansible-role-poudriere
