@@ -118,8 +118,8 @@ describe command("cd #{basefs}/ports/mini && git branch") do
 end
 
 describe command("poudriere jail -l") do
-  quoted = Regexp.escape("#{basefs}/jails/10_3")
+  quoted = Regexp.escape("#{basefs}/jails/11_2")
   its(:exit_status) { should eq 0 }
-  its(:stdout) { should match(/^10_3\s+10\.3-RELEASE(?:-p\d+)?\s+amd64\s+http\s+(?:\d+-\d+-\d+\s+\d+:\d+:\d+\s+)?#{quoted}/) }
+  its(:stdout) { should match(/^11_2\s+11\.2-RELEASE(?:-p\d+)?\s+amd64\s+http\s+(?:\d+-\d+-\d+\s+\d+:\d+:\d+\s+)?#{quoted}/) }
   its(:stderr) { should match(/^$/) }
 end
