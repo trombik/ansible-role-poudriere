@@ -12,6 +12,7 @@
           LICENSES_ACCEPTED=MSPAT OSI
           MAKE_JOB_NUMBERS=3
     poudriere_config:
+      BASEFS: /usr/local/poudriere
       FREEBSD_HOST: http://ftp.freebsd.org
       NO_ZFS: "yes"
       GIT_URL: "https://github.com/reallyenglish/freebsd-ports-mini.git"
@@ -59,9 +60,9 @@
         extra_flags: -f none -F
         path: /home/vagrant/freebsd-ports
     poudriere_jails:
-      "10_3":
+      "11_2":
         method: http
-        version: 10.3-RELEASE
+        version: 11.2-RELEASE
         state: present
     poudriere_hooks:
       jail: |
