@@ -1,7 +1,7 @@
 ---
 poudriere_config:
   NO_ZFS: "yes"
-  GIT_URL: "https://github.com/reallyenglish/freebsd-ports-mini.git"
+  GIT_URL: "https://github.com/trombik/freebsd-ports-mini.git"
   FREEBSD_HOST: "ftp://ftp.jp.freebsd.org"
   RESOLV_CONF: /etc/resolv.conf
   BASEFS: /usr/local/poudriere
@@ -12,12 +12,12 @@ poudriere_config:
 poudriere_ports:
   mini:
     method: git
-    branch: 20170222
+    branch: 20190409
     state: present
 poudriere_jails:
-  "10_3":
+  "11_2":
     method: http
-    version: 10.3-RELEASE
+    version: 11.2-RELEASE
     state: present
 poudriere_hooks:
   jail: |
